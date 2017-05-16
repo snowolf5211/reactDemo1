@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+<style>
+    .app1{
+        color: red;
+    }
+</style>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    //state 组件状态 每一次state内的值发生改变之后，都会重新执行render，来进行重新渲染
+    //diff算法，会计算哪里放生改变，值重新渲染改变的地方
+
+
+    var Message = React.createClass({
+        //初始化state
+        getInitialState:function () {
+            return (
+
+                {
+                    name:'wangzhigang'
+                }
+            )
+        },
+        changeState1:function () {
+          this.setState({
+              name:'wang131231'
+          })
+        },
+        render:function () {
+            return (
+                //获取state的值
+                    <h1 onClick={this.changeState1}>312312312 {this.state.name}</h1>
+            )
+        }
+    })
+
+    ReactDOM.render(
+        <Message/>,
+        document.getElementById('app'),
+        function () {
+            console.log("123");
+        }
+    )
+
+</script>
+
+</body>
+</html>
